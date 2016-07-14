@@ -16,6 +16,7 @@ heroku:ps [--app app]
 heroku:ps list [--app app]
 heroku:ps scale <name=dynos> ... [--app app]
 heroku:ps restart <name> ...  [--app app]
+heroku:ps stop <name> ...  [--app app]
 
 heroku:release [--app app]
 heroku:release list [--app app]

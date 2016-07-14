@@ -13,6 +13,8 @@ class CogCmd::Heroku::Ps < Cog::Command
       scale
     when "restart"
       restart
+    when "stop"
+      stop
     end
   end
 
@@ -40,6 +42,16 @@ class CogCmd::Heroku::Ps < Cog::Command
     else
       heroku.post_ps_restart(app, {})
       write_string("Restarted all processes")
+    end
+  end
+
+  def stop
+    if ps
+      heroku.post_ps_stop(app, {ps: ps})
+      write_string("Stopped process \"#{ps}\"")
+    else
+      heroku.post_ps_stop(app, {})
+      write_string("Stopped all processes")
     end
   end
 

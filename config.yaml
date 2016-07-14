@@ -46,10 +46,12 @@ commands:
       heroku:ps list [--app app] - List all running processes
       heroku:ps scale [--app app] - Change number of running processes
       heroku:ps restart [--app app] - Restart processes
+      heroku:ps stop [--app app] - Stop processes
     rules:
       - must have heroku:read
       - with arg[0] == 'scale' must have heroku:write
       - with arg[0] == 'restart' must have heroku:write
+      - with arg[0] == 'stop' must have heroku:write
     options:
       app:
         type: string
